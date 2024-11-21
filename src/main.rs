@@ -10,6 +10,17 @@ fn array() {
     }
 }
 
+fn matrix() {
+    let matrix = [[0.0, 1.2, 0.1], [1.3, 0.3, 1.4]];
+
+    for row in matrix {
+        for item in row {
+            println!("Item = {}", item);
+        }
+    }
+}
+
 fn main() {
     array();
+    matrix();
 }
