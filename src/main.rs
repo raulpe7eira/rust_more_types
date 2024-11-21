@@ -123,10 +123,47 @@ fn generic() {
     }
 }
 
+fn vectors() {
+    let mut grades: Vec<u8> = Vec::new();
+
+    grades.push(10);
+    grades.push(6);
+    grades.push(9);
+
+    println!("{:?}", grades);
+
+    let grades_2: Vec<u8> = vec![10, 4, 6];
+    println!("{:?}", grades_2);
+
+    println!("Nota 1 = {}", grades[0]);
+    println!("Nota 7 = {:?}", grades.get(6));
+
+    println!("Nota 3 = {}", grades_2[2]);
+    println!("Nota 7 = {:?}", grades_2.get(6));
+
+    while let Some(grade) = grades.pop() {
+        println!("Nota = {}", grade);
+        println!("Notas = {:?}", grades);
+    }
+
+    for grade in &grades_2 {
+        println!("Nota = {}", grade);
+    }
+
+    let mut values = vec![1, 3, 4];
+    println!("Capacidade = {}", values.capacity());
+    values.push(5);
+    println!("Capacidade = {}", values.capacity());
+
+    let values_2: Vec<u8> = Vec::with_capacity(10);
+    println!("Capacidade = {}", values_2.capacity());
+}
+
 fn main() {
     array();
     matrix();
     enumerations();
     optional();
     generic();
+    vectors();
 }
