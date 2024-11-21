@@ -110,9 +110,23 @@ fn read_file(path: String) -> Option<String> {
     Some(String::from(path))
 }
 
+#[allow(dead_code)]
+enum Template<T> {
+    Some(T),
+    None,
+}
+
+fn generic() {
+    let template: Template<u8> = Template::Some(111);
+    if let Template::Some(value) = template {
+        println!("Generic é {}", value);
+    }
+}
+
 fn main() {
     array();
     matrix();
     enumerations();
     optional();
+    generic();
 }
