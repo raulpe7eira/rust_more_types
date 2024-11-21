@@ -88,8 +88,31 @@ fn enumerations() {
     colors();
 }
 
+fn optional() {
+    let content_file = read_file(String::from("oi"));
+
+    // first option to get optional
+    match &content_file {
+        Some(value) => println!("{}", value),
+        None => println!("Arquivo não existe"),
+    }
+
+    // second option to get optional
+    println!("{:?}", content_file);
+
+    // third option to get optional
+    if let Some(value) = content_file {
+        println!("Agora, tenho certeza de ter um valor {}", value);
+    }
+}
+
+fn read_file(path: String) -> Option<String> {
+    Some(String::from(path))
+}
+
 fn main() {
     array();
     matrix();
     enumerations();
+    optional();
 }
