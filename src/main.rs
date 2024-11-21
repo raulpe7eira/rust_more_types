@@ -8,6 +8,9 @@ fn array() {
     for other_grade in other_grades {
         println!("A outra nota é = {}", other_grade);
     }
+
+    let index: usize = 1;
+    println!("{}", grades[index]);
 }
 
 fn matrix() {
