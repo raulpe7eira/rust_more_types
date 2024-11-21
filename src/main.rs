@@ -159,6 +159,42 @@ fn vectors() {
     println!("Capacidade = {}", values_2.capacity());
 }
 
+struct Holder {
+    name: String,
+    last_name: String,
+}
+
+struct Account {
+    holder: Holder,
+    balance: f64,
+}
+
+impl Account {
+    fn withdraw(&mut self, value: f64) {
+        self.balance -= value;
+    }
+}
+
+fn structs() {
+    let holder = Holder {
+        name: String::from("Raul"),
+        last_name: String::from("Pereira"),
+    };
+    let mut account = Account {
+        holder,
+        balance: 100.0,
+    };
+
+    println!(
+        "Dados da conta: Titular = {} {}, Saldo = {}",
+        account.holder.name, account.holder.last_name, account.balance
+    );
+
+    account.withdraw(50.0);
+
+    println!("Novo saldo = {}", account.balance);
+}
+
 fn main() {
     array();
     matrix();
@@ -166,4 +202,5 @@ fn main() {
     optional();
     generic();
     vectors();
+    structs();
 }
