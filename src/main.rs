@@ -23,7 +23,29 @@ fn matrix() {
     }
 }
 
+enum Weekday {
+    Sunday,
+    Monday,
+    Tuesday,
+    Wednesday,
+    Thursday,
+    Friday,
+    Saturday,
+}
+
+fn weekend(weekday: Weekday) -> bool {
+    match weekday {
+        Weekday::Sunday | Weekday::Saturday => true,
+        _ => false,
+    }
+}
+
+fn enumerations() {
+    println!("É fim de semana? {}", weekend(Weekday::Monday))
+}
+
 fn main() {
     array();
     matrix();
+    enumerations();
 }
