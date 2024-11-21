@@ -23,6 +23,7 @@ fn matrix() {
     }
 }
 
+#[allow(dead_code)]
 enum Weekday {
     Sunday,
     Monday,
@@ -40,8 +41,51 @@ fn weekend(weekday: Weekday) -> bool {
     }
 }
 
+#[allow(dead_code)]
+enum Color {
+    Red,
+    Green,
+    Blue,
+    RgbColor(u8, u8, u8),
+    CymkColor {
+        cyan: u8,
+        magenta: u8,
+        yellow: u8,
+        black: u8,
+    },
+}
+
+fn colors() {
+    let color = Color::Green;
+
+    println!(
+        "Cor = {}",
+        match color {
+            Color::Red => "vermelho",
+            Color::Green => "verde",
+            Color::Blue => "azul",
+            Color::RgbColor(0, 0, 0)
+            | Color::CymkColor {
+                cyan: 0,
+                magenta: 0,
+                yellow: 0,
+                black: 0,
+            } => "preto",
+            Color::RgbColor(_, _, _) => "RGB desconhecido",
+            Color::CymkColor {
+                cyan: _,
+                magenta: _,
+                yellow: _,
+                black: _,
+            } => "CYMK desconhecido",
+        }
+    );
+}
+
 fn enumerations() {
-    println!("É fim de semana? {}", weekend(Weekday::Monday))
+    println!("É fim de semana? {}", weekend(Weekday::Monday));
+
+    colors();
 }
 
 fn main() {
